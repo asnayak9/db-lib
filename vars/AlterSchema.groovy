@@ -3,11 +3,8 @@ package org.foo
 import groovy.sql.Sql
 import groovy.text.SimpleTemplateEngine
 
-class AlterSchema implements Serializable {
-    def steps
-    AlterSchema(steps) {this.steps = steps}
 
-    def prepareAlterScript(args) {
+    def prepareAlterScript() {
         def changeRequestContent = "ALTER TABLE `master_db`.`sy_parameter` \n" +
                 "ADD COLUMN `sy_parametercol` VARCHAR(45) NULL AFTER `DB_Version`"
         def dbUrl = 'jdbc:mysql://localhost:3306/master_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC'
@@ -23,4 +20,4 @@ class AlterSchema implements Serializable {
         def result = template.make(binding).toString()
         println result
     }
-}
+return this
