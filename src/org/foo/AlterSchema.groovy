@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
 package org.foo
+this.class.classLoader.addURL(new URL("file://${System.getProperty('user.home')}/plugins/database-mysql/WEB-INF/lib/mysql-connector-java-5.1.21.jar"))
 
 import groovy.sql.Sql
 import groovy.text.SimpleTemplateEngine
