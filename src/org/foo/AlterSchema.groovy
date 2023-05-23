@@ -12,8 +12,6 @@ import groovy.text.SimpleTemplateEngine
 )
 class AlterSchema {
   def prepareAlterScript() {
-    this.class.classLoader.addURL(new URL("file://C:/Users/91789/Downloads/mysql-connector-j-8.0.33.jar"))
-
     def changeRequestContent = "ALTER TABLE `master_db`.`sy_parameter` \n" +
             "ADD COLUMN `sy_parametercol` VARCHAR(45) NULL AFTER `DB_Version`"
     def dbUrl = 'jdbc:mysql://localhost:3306/master_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC'
