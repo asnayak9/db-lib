@@ -10,7 +10,6 @@ import groovy.text.SimpleTemplateEngine
         @Grab(group='org.codehaus.groovy', module='groovy-templates', version='2.4.21')
 ]
 )
-@GrabConfig(systemClassLoader=true)
 class AlterSchema {
   def prepareAlterScript() {
     def changeRequestContent = "ALTER TABLE `master_db`.`sy_parameter` \n" +
