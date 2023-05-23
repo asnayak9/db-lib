@@ -12,6 +12,8 @@ import groovy.text.SimpleTemplateEngine
 )
 class AlterSchema {
   def prepareAlterScript() {
+    println System.getProperty("java.ext.dirs")
+    println System.getProperty("user.home")
     this.class.classLoader.addURL(new URL("file://${System.getProperty('user.home')}/plugins/database-mysql/WEB-INF/lib/mysql-connector-java-5.1.21.jar"))
 
     def changeRequestContent = "ALTER TABLE `master_db`.`sy_parameter` \n" +
