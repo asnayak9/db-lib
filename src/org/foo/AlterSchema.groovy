@@ -4,6 +4,10 @@ package org.foo
 import groovy.sql.Sql
 import groovy.text.SimpleTemplateEngine
 
+@Grapes(
+        @Grab(group='com.mysql', module='mysql-connector-j', version='8.0.33')
+)
+
 class AlterSchema {
   def prepareAlterScript() {
     def changeRequestContent = "ALTER TABLE `master_db`.`sy_parameter` \n" +
