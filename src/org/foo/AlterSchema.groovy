@@ -2,6 +2,7 @@
 package org.foo
 
 import groovy.sql.Sql
+import groovy.sql.DriverManager
 import groovy.text.SimpleTemplateEngine
 
 @Grapes(
