@@ -20,7 +20,7 @@ class AlterSchema {
             "ADD COLUMN `sy_parametercol` VARCHAR(45) NULL AFTER `DB_Version`"
     def dbUrl = 'jdbc:mysql://localhost:3306/master_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC'
 
-    sql = Sql.newInstance(dbUrl, 'root', 'Mamata@143123', 'com.mysql.jdbc.Driver')
+    def sql = Sql.newInstance(dbUrl, 'root', 'Mamata@143123', 'com.mysql.jdbc.Driver')
     def row = sql.firstRow("SELECT DB_Version as oldV FROM master_db.sy_parameter")
     def oldV = row.getProperty("oldV") as BigDecimal
     sql.close()
