@@ -26,6 +26,7 @@ class AlterSchema {
 
     def result = template.make(binding).toString()
     println result
+    return result
   }
 }
 
