@@ -2,7 +2,6 @@
 package org.foo
 
 import groovy.sql.Sql
-import groovy.sql.DriverManager
 import groovy.text.SimpleTemplateEngine
 
 @Grapes([
@@ -11,14 +10,14 @@ import groovy.text.SimpleTemplateEngine
         @Grab(group='org.codehaus.groovy', module='groovy-templates', version='2.4.21')
 ]
 )
-
+@GrabConfig(systemClassLoader=true)
 class AlterSchema {
   def prepareAlterScript() {
     def changeRequestContent = "ALTER TABLE `master_db`.`sy_parameter` \n" +
             "ADD COLUMN `sy_parametercol` VARCHAR(45) NULL AFTER `DB_Version`"
     def dbUrl = 'jdbc:mysql://localhost:3306/master_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC'
-    DriverManager.registerDriver(new com.mysql.jdbc.Driver())
-    sql = Sql.newInstance(dbUrl, 'root', 'Mamata@143123')
+
+    sql = Sql.newInstance(dbUrl, 'root', 'Mamata@143123', 'com.mysql.jdbc.Driver')
     def row = sql.firstRow("SELECT DB_Version as oldV FROM master_db.sy_parameter")
     def oldV = row.getProperty("oldV") as BigDecimal
     sql.close()
