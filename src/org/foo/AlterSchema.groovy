@@ -11,9 +11,9 @@ import groovy.text.SimpleTemplateEngine
 ]
 )
 class AlterSchema {
-  def prepareAlterScript() {
-    def changeRequestContent = "ALTER TABLE `master_db`.`sy_parameter` \n" +
-            "ADD COLUMN `sy_parametercol` VARCHAR(45) NULL AFTER `DB_Version`"
+  def prepareAlterScript(def changeRequestContent) {
+    /*def changeRequestContent = "ALTER TABLE `master_db`.`sy_parameter` \n" +
+            "ADD COLUMN `sy_parametercol` VARCHAR(45) NULL AFTER `DB_Version`"*/
     def dbUrl = 'jdbc:mysql://localhost:3306/master_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC'
 
     def sql = Sql.newInstance(dbUrl, 'root', 'Mamata@143123', 'com.mysql.jdbc.Driver')
