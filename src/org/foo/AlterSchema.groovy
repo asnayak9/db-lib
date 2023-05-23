@@ -1,6 +1,5 @@
 #!/usr/bin/env groovy
 package org.foo
-this.class.classLoader.addURL(new URL("file://${System.getProperty('user.home')}/plugins/database-mysql/WEB-INF/lib/mysql-connector-java-5.1.21.jar"))
 
 import groovy.sql.Sql
 import groovy.text.SimpleTemplateEngine
@@ -13,6 +12,8 @@ import groovy.text.SimpleTemplateEngine
 )
 class AlterSchema {
   def prepareAlterScript() {
+    this.class.classLoader.addURL(new URL("file://${System.getProperty('user.home')}/plugins/database-mysql/WEB-INF/lib/mysql-connector-java-5.1.21.jar"))
+
     def changeRequestContent = "ALTER TABLE `master_db`.`sy_parameter` \n" +
             "ADD COLUMN `sy_parametercol` VARCHAR(45) NULL AFTER `DB_Version`"
     def dbUrl = 'jdbc:mysql://localhost:3306/master_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC'
