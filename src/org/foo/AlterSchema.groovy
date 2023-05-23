@@ -5,10 +5,11 @@ import groovy.sql.Sql
 import groovy.sql.DriverManager
 import groovy.text.SimpleTemplateEngine
 
-@Grapes(
+@Grapes([
         @Grab(group='com.mysql', module='mysql-connector-j', version='8.0.33'),
         @Grab(group='org.apache.groovy', module='groovy-sql', version='4.0.2'),
         @Grab(group='org.apache.groovy', module='groovy-templates', version='4.0.2')
+]
 )
 
 class AlterSchema {
